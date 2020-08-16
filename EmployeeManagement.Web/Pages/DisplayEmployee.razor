@@ -1,0 +1,61 @@
+﻿@inherits DisplayEmployeeBase
+
+
+<tbody>
+    <tr class="primary">
+        <td>@Employee.EmployeeId</td>
+        <td>@Employee.Client</td>
+        <td>@Employee.AgencyId</td>
+        <td>@Employee.AccountId</td>
+        <td>@Employee.FirstName</td>
+        <td>@Employee.LastName</td>
+        <td>@Employee.AccountStartDate</td>
+        <td>@Employee.RefferedAmount</td>
+        <td>@Employee.Balance</td>
+        <td>@Employee.StatusDate</td>
+        <td>@Employee.Gender</td>
+        <td>@Employee.Email</td>
+        <td>@Employee.DateOfBrith.ToString("dd-MMM-yyyy")</td>
+        <td>
+            <a href="@($"employeedetails/{Employee.EmployeeId}")" class="btn btn-primary btn-sm" role="button">View</a>
+            <a href="@($"editemployee/{Employee.EmployeeId}")"
+               class="btn btn-primary btn-sm">Edit</a>
+            <button type="button" class="btn btn-danger btn-sm"
+                    @onclick="Delete_Click">
+                Delete
+            </button>
+        </td>
+    </tr>
+</tbody>
+<Confirm ConfirmationChanged="ConfirmDelete_Click" @ref="DeleteConfirmation"
+         ConfirmationMessage=@($"Are you sure you want to delete \"{Employee.FirstName}\"")></Confirm>
+
+
+@*
+<div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
+    <div class="card-header">
+        <h3>
+            <input type="checkbox" @onchange="CheckBoxChanged" />
+            @Employee.FirstName @Employee.LastName
+        </h3>
+    </div>
+
+    @if (ShowFooter)
+    {
+        <div class="card-footer text-center">
+            <a href="@($"employeedetails/{Employee.EmployeeId}")"
+               class="btn btn-primary m-1">View</a>
+
+            <a href="@($"editemployee/{Employee.EmployeeId}")"
+               class="btn btn-primary m-1">Edit</a>
+
+            <button type="button" class="btn btn-danger m-1"
+                    @onclick="Delete_Click">
+                Delete
+            </button>
+        </div>
+    }
+</div>
+<Confirm ConfirmationChanged="ConfirmDelete_Click" @ref="DeleteConfirmation"
+         ConfirmationMessage=@($"Are you sure you want to delete \"{Employee.FirstName}\"")></Confirm>
+*@

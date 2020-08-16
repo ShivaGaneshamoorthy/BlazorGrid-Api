@@ -1,0 +1,68 @@
+﻿@page "/"
+@inherits EmployeeListBase
+
+@attribute [Authorize]
+    
+
+    <h1 style="color:rebeccapurple" align="top-left"><b>ARMSOLUTIONS</b> </h1>
+    @if (Employees == null)
+    {
+        <div class="spinner"></div>
+    }
+    else
+    {
+        <div class="container">
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Client</th>
+                        <th scope="col">AgencyID</th>
+                        <th scope="col">AccountID</th>
+                        <th scope="col">ClientName</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col">AccountStartDate</th>
+                        <th scope="col">RefferedAmount</th>
+                        <th scope="col">Balance</th>
+                        <th scope="col">StatusDate</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">email</th>
+                        <th scope="col">DOB</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                @foreach (var employee in Employees)
+                {
+                    <DisplayEmployee Employee="employee" ShowFooter="ShowFooter"
+                                     OnEmployeeSelection="EmployeeSelectionChanged"
+                                     OnEmployeeDeleted="EmployeeDeleted">
+
+                    </DisplayEmployee>
+                }
+            </table>
+        </div>
+    }
+
+
+
+
+
+    @*
+        <h3>Selected Employees Count - @SelectedEmployeesCount</h3>
+        <input type="checkbox" id="showFooter" @bind="ShowFooter" />
+        <label for="showFooter">Show Footer</label>
+        @if (Employees == null)
+        {
+            <div class="spinner"></div>
+        }
+        else
+        {
+            <div class="card-deck">
+                @foreach (var employee in Employees)
+                {
+                    <DisplayEmployee Employee="employee" ShowFooter="ShowFooter"
+                                     OnEmployeeSelection="EmployeeSelectionChanged"
+                                     OnEmployeeDeleted="EmployeeDeleted"></DisplayEmployee>
+                }
+            </div>
+        }*@

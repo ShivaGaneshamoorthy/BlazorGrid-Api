@@ -1,0 +1,77 @@
+﻿@page "/employeedetails/{id}"
+@page "/employeedetails"
+@inherits EmployeeDetailsBase
+
+
+<h2 style="color:rebeccapurple;"><b>Client Details</b></h2>
+
+@if (Employee == null || Employee.Department == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <div class="row justify-content-center m-3">
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-header">
+                    <h1> @Employee.EmployeeId . @Employee.FirstName </h1>
+                </div>
+
+                <div class="card-body text-center">
+                    <h4>AgencyId: @Employee.AccountId</h4>
+                    <h4>AgencyId: @Employee.AgencyId</h4>
+                    <h4>Gender: @Employee.Gender</h4>
+                    <h4>RefferedAmount: @Employee.RefferedAmount</h4>
+                    <h4>Balance: @Employee.Balance</h4>
+                    <h4>Status: @Employee.Status</h4>
+                    <h4>StatusDate: @Employee.StatusDate</h4>
+                    <h4>Email : @Employee.Email</h4>
+                    <h4>Department : @(Employee.Department == null ? "N/A" : Employee.Department.DepartmentName)</h4>
+                    <button class="btn btn-primary" @onclick="@Button_Click">@ButtonText</button>
+                </div>
+                <div class="card-footer text-center @CssClass">
+                    <a href="/" class="btn btn-primary">Back</a>
+                    <a href="@($"editemployee/{Employee.EmployeeId}")"
+                       class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@*
+    @if (Employee == null)
+    {
+        <div class="spinner"></div>
+    }
+    else
+    {
+        <div class="row justify-content-center m-3">
+            <div class="col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h1>@Employee.FirstName @Employee.LastName </h1>
+                    </div>
+
+                    <div class="card-body text-center">
+
+                        <h4>Employee ID : @Employee.EmployeeId</h4>
+                        <h4>Email : @Employee.Email</h4>
+                        <h4>Department : @(Employee.Department == null ? "N/A" : Employee.Department.DepartmentName)</h4>
+                        <button class="btn btn-primary" @onclick="@Button_Click">@ButtonText</button>
+                    </div>
+                    <div class="card-footer text-center @CssClass">
+                        <a href="/" class="btn btn-primary">Back</a>
+                        <a href="@($"editemployee/{Employee.EmployeeId}")"
+                           class="btn btn-primary">Edit</a>
+                        <a href="#" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+*@
+
